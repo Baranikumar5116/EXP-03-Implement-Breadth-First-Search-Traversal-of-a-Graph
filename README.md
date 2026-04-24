@@ -1,7 +1,7 @@
 # EXP-03-Implement-Breadth-First-Search-Traversal-of-a-Graph
 Breadth First Search Traversal of a Graph
-<h3>Name: J SHYAM SUNDAR  </h3>
-<h3>Register Number: 212224060250 </h3>
+<h3>Name: BARANIKUMAR S</h3>
+<h3>Register Number: 212224060038 </h3>
 
 AIM: 
 Theory: 
