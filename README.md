@@ -1,6 +1,6 @@
 # EXP-03-Implement-Breadth-First-Search-Traversal-of-a-Graph
 Breadth First Search Traversal of a Graph
-<h3>Name: BARANIKUMAR S</h3>
+<h3>Name: BARANIKUMAR S </h3>
 <h3>Register Number: 212224060038 </h3>
 
 AIM: 
@@ -38,3 +38,116 @@ queue. </B>
 
 
 <B>Step 5: Remove node 2 from the front of queue and visit the unvisited neighbours and push them into 
+queue. </B>
+<img width="703" height="260" alt="image" src="https://github.com/user-attachments/assets/1fe9225d-7244-4574-b93a-1044f6f302ad" />
+
+<B>Step 6: Remove node 3 from the front of queue and visit the unvisited neighbours and push them into 
+queue.  </B>
+<img width="647" height="240" alt="image" src="https://github.com/user-attachments/assets/642ece03-db56-4410-8f3a-afe80bb05d41" />
+
+As we can see that every neighbours of node 3 is visited, so move to the next node that are in the 
+front of the queue. 
+Remove node 3 from the front of queue and visit the unvisited neighbours and push them into queue.  
+<B>
+
+Steps 7: Remove node 4 from the front of queue and visit the unvisited neighbours and push them 
+into queue.  </B>
+<img width="646" height="248" alt="image" src="https://github.com/user-attachments/assets/68cfee3e-1f6a-4931-b7db-69412c2e6d07" />
+
+As we can see that every neighbours of node 4 are visited, so move to the next node that is in the 
+front of the queue. 
+Remove node 4 from the front of queue and visit the unvisited neighbours and push them into queue. 
+Now, Queue becomes empty, So, terminate these process of iteration. 
+Algorithm: 
+1. Construct a Graph with Nodes and Edges 
+2. Breadth First Uses Queue and iterates through the Queue for Traversal. 
+3. Insert a Start Node into the Queue. 
+4. Find its Successors Or neighbors and Check whether the node is visited or not. 
+5. If Not Visited, add it to the Queue. Else Continue. 
+6. Iterate steps 4 and 5 until all nodes get visited, and there are no more unvisited nodes.
+   
+## PROGRAM
+
+```
+from collections import deque
+from collections import defaultdict
+
+def bfs(graph,start,visited,path):
+    queue = deque()
+    path.append(start)
+    queue.append(start)
+    visited[start] = True
+    while len(queue) != 0:
+        tmpnode = queue.popleft()
+        for neighbour in graph[tmpnode]:
+            if visited[neighbour] == False:
+                path.append(neighbour)
+                queue.append(neighbour)
+                visited[neighbour] = True
+    return path
+
+graph = defaultdict(list)
+v,e = map(int,input().split())
+for i in range(e):
+    u,v = map(str,input().split())
+    graph[u].append(v)
+    graph[v].append(u)
+
+if '0' in graph:
+    start = '0'
+else:
+    start = 'A'
+path = []
+visited = defaultdict(bool)
+traversedpath = bfs(graph,start,visited,path)
+print(traversedpath)
+```
+
+<hr>
+<h3>Sample Input</h3>
+
+7 9 <BR>
+A B <BR>
+A C <BR>
+A F <BR>
+C E <BR>
+C F <BR>
+C D <BR>
+D E <BR>
+D G <BR>
+G F <BR>
+<hr>
+<h3>Sample Output</h3>
+
+['A', 'B', 'C', 'F', 'E', 'D', 'G']
+
+<hr>
+
+## OUTPUT
+
+<img width="404" height="332" alt="image" src="https://github.com/user-attachments/assets/aa99d7c2-a258-4e68-a525-db81441c2dc2" />
+
+<hr>
+<h3>Sample Input</h3>
+
+5 6 <BR>
+0 1 <BR>
+0 2 <BR>
+1 2 <BR>
+1 3 <BR>
+2 4 <BR>
+3 4 <BR>
+<hr>
+<h3>Sample Output</h3>
+<hr>
+['0', '1', '2', '3', '4']
+<hr>
+
+## OUTPUT
+
+<img width="400" height="252" alt="image" src="https://github.com/user-attachments/assets/4834ba63-1f2c-4648-b580-54d7d360a6fc" />
+<hr>
+<h3>Result:</h3>
+
+<p>Thus,a Graph was constructed and implementation of Breadth First Search for the same graph
+  was done successfully.</p>
